@@ -6,6 +6,13 @@ public class Shuffler {
     /**
      * The number of consecutive shuffle steps to be performed in each call
      * to each sorting procedure.
+     * int next = 2 * (i+1);
+    if(next > values.length){
+    next = 0;
+    }
+    int temp = values[i];
+    values[i] = values[next];
+    values[next] = temp;
      */
     private static final int SHUFFLE_COUNT = 1;
 
@@ -41,16 +48,19 @@ public class Shuffler {
         System.out.println();
     }
 
+    public static void test(){
+        System.out.println(1%2);
+    }
+
     /**
      * Apply a "perfect shuffle" to the argument.
      * The perfect shuffle algorithm splits the deck in half, then interleaves
      * the cards in one half with the cards in the other.
      * @param values is an array of integers simulating cards to be shuffled.
+     * 
      */
     public static void perfectShuffle(int[] values) {
-        
-        
-        
+
     }
 
     /**
@@ -65,6 +75,16 @@ public class Shuffler {
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void selectionShuffle(int[] values) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+        int[] cards = values;
+        int[] shuffled = new int[52];
+        for( int i = SHUFFLE_COUNT - 1; i >= 0; i-- ) {
+            for(int j = 0; j < cards.length-1; j++){
+                int rand;
+                while(cards[rand] != 0){
+                    rand = (int) (Math.random() * i);
+                }
+                shuffled[count] = values[rand];
+            }
+        }
     }
 }
