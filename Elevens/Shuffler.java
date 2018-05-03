@@ -15,7 +15,7 @@ public class Shuffler {
     values[next] = temp;
      */
     private static final int SHUFFLE_COUNT = 1;
-
+    int[] values = {1, 2, 3, 4, 5, 6, 7, 8};
     /**
      * Tests shuffling methods.
      * @param args is not used.
@@ -60,7 +60,24 @@ public class Shuffler {
      * 
      */
     public static void perfectShuffle(int[] values) {
-
+        int[] cards1 = new int[values.length/2];
+        int[] cards2 = new int [values.length/2];
+        int[] newValues = new int[values.length];
+        for(int i = 0; i < (values.length-1)/2; i++) // first half of array stored
+        {
+            cards1[i] = values[i];
+        }
+        for(int j = values.length-1; j > (values.length)/2; j--) // second half of array stored
+        {
+            int id = 0;
+            cards2[id] = values[j];
+            id++;
+        }
+        for(int x = 0; x < cards1.length-1; x++)
+        {
+            
+            newValues[x + (2%(x + 1))] = values[x];
+        }
     }
 
     /**
@@ -74,17 +91,14 @@ public class Shuffler {
      * searching for an as-yet-unselected card.
      * @param values is an array of integers simulating cards to be shuffled.
      */
-    public static void selectionShuffle(int[] values) {
-        int[] cards = values;
+    public static void selectionShuffle(int[] array) {
         int[] shuffled = new int[52];
-        for( int i = SHUFFLE_COUNT - 1; i >= 0; i-- ) {
-            for(int j = 0; j < cards.length-1; j++){
-                int rand;
-                while(cards[rand] != 0){
-                    rand = (int) (Math.random() * i);
-                }
-                shuffled[count] = values[rand];
-            }
-        }
+        
     }
 }
+
+
+
+
+
+
